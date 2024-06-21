@@ -1,31 +1,67 @@
-import java.util.List;
-
 public class Habitacion {
     private int identificador;
-    private HabitacionTipo tipo;
-    private HabitacionState estado;
+    private String tipo;
     private int capacidad;
     private double tarifa;
+    private boolean balcon;
     private String descripcion;
-    private List<Extra> extras;
 
-    public Habitacion(int identificador, HabitacionTipo tipo, int capacidad, double tarifa, String descripcion, List<Extra> extras) {
+    public Habitacion(int identificador, String tipo, int capacidad, double tarifa, boolean balcon, String descripcion) {
         this.identificador = identificador;
         this.tipo = tipo;
         this.capacidad = capacidad;
         this.tarifa = tarifa;
+        this.balcon = balcon;
         this.descripcion = descripcion;
-        this.extras = extras;
-        this.estado = new Disponible(this); // Estado inicial
     }
 
-    public void setEstado(HabitacionState estado) {
-        this.estado = estado;
+    // Getters
+    public int getIdentificador() {
+        return identificador;
     }
 
-    public HabitacionState getEstado() {
-        return estado;
+    public String getTipo() {
+        return tipo;
     }
 
-    // Getters and setters for other fields as needed
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public double getTarifa() {
+        return tarifa;
+    }
+
+    public boolean isBalcon() {
+        return balcon;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    // Setters
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    public void setTarifa(double tarifa) {
+        this.tarifa = tarifa;
+    }
+
+    public void setBalcon(boolean balcon) {
+        this.balcon = balcon;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }

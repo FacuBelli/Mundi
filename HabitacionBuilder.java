@@ -1,23 +1,18 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class HabitacionBuilder {
     private int identificador;
-    private HabitacionTipo tipo;
+    private String tipo;
     private int capacidad;
     private double tarifa;
     private boolean balcon;
     private String descripcion;
-    private List<Extra> extras = new ArrayList<>();
 
     public HabitacionBuilder clear() {
-        identificador = 0;
-        tipo = null;
-        capacidad = 0;
-        tarifa = 0.0;
-        balcon = false;
-        descripcion = "";
-        extras.clear();
+        this.identificador = 0;
+        this.tipo = null;
+        this.capacidad = 0;
+        this.tarifa = 0.0;
+        this.balcon = false;
+        this.descripcion = null;
         return this;
     }
 
@@ -26,7 +21,7 @@ public class HabitacionBuilder {
         return this;
     }
 
-    public HabitacionBuilder tipo(HabitacionTipo tipo) {
+    public HabitacionBuilder tipo(String tipo) {
         this.tipo = tipo;
         return this;
     }
@@ -51,12 +46,7 @@ public class HabitacionBuilder {
         return this;
     }
 
-    public HabitacionBuilder addExtra(Extra extra) {
-        this.extras.add(extra);
-        return this;
-    }
-
     public Habitacion build() {
-        return new Habitacion(identificador, tipo, capacidad, tarifa, descripcion, extras);
+        return new Habitacion(identificador, tipo, capacidad, tarifa, balcon, descripcion);
     }
 }
