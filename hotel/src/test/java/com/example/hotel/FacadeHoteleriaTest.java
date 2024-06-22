@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.example.hotel.habitacion.Habitacion;
+import com.example.hotel.habitacion.tipo.Suite;
 import com.example.hotel.reserva.Reserva;
 import com.example.hotel.usuario.Huesped;
 
@@ -29,24 +30,24 @@ public class FacadeHoteleriaTest {
 
   @Test
   public void testCargarHabitacion() {
-    Habitacion habitacion = facade.cargarHabitacion(1, "Suite", 2, 150.0, true, "Habitación con vista al mar");
+    Habitacion habitacion = facade.cargarHabitacion(1, new Suite(), 2, 150.0, true, "Habitación con vista al mar");
     assertNotNull(habitacion);
     assertEquals(1, habitacion.getIdentificador());
-    assertEquals("Suite", habitacion.getTipo());
+    assertEquals(Suite.class, habitacion.getTipo().getClass());
   }
 
   @Test
   public void testBuscarHabitacion() {
-    facade.cargarHabitacion(1, "Suite", 2, 150.0, true, "Habitación con vista al mar");
-    List<Habitacion> habitaciones = facade.buscarHabitacion("Suite", 2);
+    facade.cargarHabitacion(1, new Suite(), 2, 150.0, true, "Habitación con vista al mar");
+    List<Habitacion> habitaciones = facade.buscarHabitacion(new Suite(), 2);
     assertEquals(1, habitaciones.size());
-    assertEquals("Suite", habitaciones.get(0).getTipo());
+    assertEquals(Suite.class, habitaciones.get(0).getTipo().getClass());
   }
 
   @Test
   public void testCrearReserva() {
     Huesped huesped = facade.registrarHuesped("Juan", "Perez", "12345678", "555-1234", "juan.perez@example.com");
-    Habitacion habitacion = facade.cargarHabitacion(1, "Suite", 2, 150.0, true, "Habitación con vista al mar");
+    Habitacion habitacion = facade.cargarHabitacion(1, new Suite(), 2, 150.0, true, "Habitación con vista al mar");
     Reserva reserva = facade.crearReserva(1, huesped, habitacion, new Date(), new Date(), 300.0);
     assertNotNull(reserva);
     assertEquals(1, reserva.getId());

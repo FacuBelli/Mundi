@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.example.hotel.habitacion.Habitacion;
 import com.example.hotel.habitacion.HabitacionBuilder;
+import com.example.hotel.habitacion.tipo.IHabitacionTipo;
 import com.example.hotel.reserva.Reserva;
 import com.example.hotel.reserva.ReservaBuilder;
 import com.example.hotel.usuario.Huesped;
@@ -34,7 +35,8 @@ public class FacadeHoteleria {
     return huesped;
   }
 
-  public Habitacion cargarHabitacion(int identificador, String tipo, int capacidad, double tarifa, boolean balcon,
+  public Habitacion cargarHabitacion(int identificador, IHabitacionTipo tipo, int capacidad, double tarifa,
+      boolean balcon,
       String descripcion) {
     Habitacion habitacion = habitacionBuilder.clear()
         .identificador(identificador)
@@ -48,7 +50,7 @@ public class FacadeHoteleria {
     return habitacion;
   }
 
-  public List<Habitacion> buscarHabitacion(String tipo, int capacidad) {
+  public List<Habitacion> buscarHabitacion(IHabitacionTipo tipo, int capacidad) {
     List<Habitacion> result = new ArrayList<>();
     for (Habitacion habitacion : habitaciones) {
       if (habitacion.getTipo().equals(tipo) && habitacion.getCapacidad() == capacidad) {
