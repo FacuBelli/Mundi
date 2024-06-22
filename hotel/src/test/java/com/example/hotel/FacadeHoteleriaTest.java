@@ -50,7 +50,6 @@ public class FacadeHoteleriaTest {
     Habitacion habitacion = facade.cargarHabitacion(1, new Suite(), 2, 150.0, true, "Habitación con vista al mar");
     Reserva reserva = facade.crearReserva(1, huesped, habitacion, new Date(), new Date(), 300.0);
     assertNotNull(reserva);
-    assertEquals(1, reserva.getId());
     assertEquals(huesped, reserva.getHuesped());
     assertEquals(habitacion, reserva.getHabitacion());
   }

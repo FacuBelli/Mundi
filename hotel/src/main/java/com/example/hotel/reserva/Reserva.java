@@ -14,12 +14,17 @@ public class Reserva {
   private IReservaState estado;
   private GestorFacturacion gestorFacturacion;
 
+  public Reserva() {
+    this.gestorFacturacion = new GestorFacturacion(this);
+  }
+
   public Reserva(Huesped huesped, Habitacion habitacion, Date fechaInicio, Date fechaFin, IReservaState estado) {
     this.huesped = huesped;
     this.habitacion = habitacion;
     this.fechaInicio = fechaInicio;
     this.fechaFin = fechaFin;
     this.estado = estado;
+    this.gestorFacturacion = new GestorFacturacion(this);
   }
 
   public Huesped getHuesped() {
@@ -60,5 +65,9 @@ public class Reserva {
 
   public void setEstado(IReservaState estado) {
     this.estado = estado;
+  }
+  
+  public GestorFacturacion getGestorFacturacion() {
+    return gestorFacturacion;
   }
 }
