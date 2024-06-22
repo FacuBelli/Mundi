@@ -1,9 +1,13 @@
 package com.example.hotel;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.List;
 
 import com.example.hotel.habitacion.Habitacion;
+import com.example.hotel.habitacion.tipo.IHabitacionTipo;
+import com.example.hotel.habitacion.tipo.Simple;
+import com.example.hotel.habitacion.tipo.Suite;
 
 public class Main {
   public static void main(String[] args) {
@@ -40,6 +44,8 @@ public class Main {
           scanner.nextLine();
           System.out.print("Tipo: ");
           String tipo = scanner.nextLine();
+          IHabitacionTipo tipoConcreto = tipo.toLowerCase() == "suite" ? new Suite()
+              : tipo.toLowerCase() == "simple" ? new Simple() : null;
           System.out.print("Capacidad: ");
           int capacidad = scanner.nextInt();
           System.out.print("Tarifa: ");
@@ -49,15 +55,17 @@ public class Main {
           scanner.nextLine();
           System.out.print("Descripción: ");
           String descripcion = scanner.nextLine();
-          facade.cargarHabitacion(id, tipo, capacidad, tarifa, balcon, descripcion);
+          facade.cargarHabitacion(id, tipoConcreto, capacidad, tarifa, balcon, descripcion);
           System.out.println("Habitación cargada con éxito.");
           break;
         case 3:
           System.out.print("Tipo: ");
           String tipoBusqueda = scanner.nextLine();
+          IHabitacionTipo tipoBusquedaConcreto = tipoBusqueda.toLowerCase() == "suite" ? new Suite()
+              : tipoBusqueda.toLowerCase() == "simple" ? new Simple() : null;
           System.out.print("Capacidad: ");
           int capacidadBusqueda = scanner.nextInt();
-          List<Habitacion> habitaciones = facade.buscarHabitacion(tipoBusqueda, capacidadBusqueda);
+          List<Habitacion> habitaciones = facade.buscarHabitacion(tipoBusquedaConcreto, capacidadBusqueda);
           System.out.println("Habitaciones encontradas:");
           for (Habitacion habitacion : habitaciones) {
             System.out.println(habitacion.getIdentificador() + " - " + habitacion.getTipo() + " - "

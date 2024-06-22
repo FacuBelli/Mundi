@@ -3,74 +3,62 @@ package com.example.hotel.reserva;
 import java.util.Date;
 
 import com.example.hotel.habitacion.Habitacion;
+import com.example.hotel.reserva.state.IReservaState;
 import com.example.hotel.usuario.Huesped;
 
 public class Reserva {
-  private int id;
   private Huesped huesped;
   private Habitacion habitacion;
   private Date fechaInicio;
   private Date fechaFin;
-  private double costoTotal;
+  private IReservaState estado;
+  private GestorFacturacion gestorFacturacion;
 
-  public Reserva(int id, Huesped huesped, Habitacion habitacion, Date fechaInicio, Date fechaFin, double costoTotal) {
-    this.id = id;
+  public Reserva(Huesped huesped, Habitacion habitacion, Date fechaInicio, Date fechaFin, IReservaState estado) {
     this.huesped = huesped;
     this.habitacion = habitacion;
     this.fechaInicio = fechaInicio;
     this.fechaFin = fechaFin;
-    this.costoTotal = costoTotal;
-  }
-
-  // Getters
-  public int getId() {
-    return id;
+    this.estado = estado;
   }
 
   public Huesped getHuesped() {
     return huesped;
   }
 
-  public Habitacion getHabitacion() {
-    return habitacion;
-  }
-
-  public Date getFechaInicio() {
-    return fechaInicio;
-  }
-
-  public Date getFechaFin() {
-    return fechaFin;
-  }
-
-  public double getCostoTotal() {
-    return costoTotal;
-  }
-
-  // Setters
-  public void setId(int id) {
-    this.id = id;
-  }
-
   public void setHuesped(Huesped huesped) {
     this.huesped = huesped;
+  }
+
+  public Habitacion getHabitacion() {
+    return habitacion;
   }
 
   public void setHabitacion(Habitacion habitacion) {
     this.habitacion = habitacion;
   }
 
+  public Date getFechaInicio() {
+    return fechaInicio;
+  }
+
   public void setFechaInicio(Date fechaInicio) {
     this.fechaInicio = fechaInicio;
+  }
+
+  public Date getFechaFin() {
+    return fechaFin;
   }
 
   public void setFechaFin(Date fechaFin) {
     this.fechaFin = fechaFin;
   }
 
-  public void setCostoTotal(double costoTotal) {
-    this.costoTotal = costoTotal;
+  public IReservaState getEstado() {
+    return estado;
   }
 
-  // Métodos adicionales
+  public void setEstado(IReservaState estado) {
+    this.estado = estado;
+  }
 }

@@ -5,8 +5,8 @@ import com.example.hotel.habitacion.tipo.IHabitacionTipo;
 public class HabitacionBuilder {
   Habitacion habitacion;
 
-  HabitacionBuilder() {
-    habitacion = new Habitacion();
+  public HabitacionBuilder() {
+    this.clear();
   }
 
   public HabitacionBuilder clear() {
