@@ -54,6 +54,6 @@ public class ReservaBuilder {
   }
 
   public Reserva build() {
-    return new Reserva(id, huesped, habitacion, fechaInicio, fechaFin, costoTotal);
+    return new Reserva(huesped, habitacion, fechaInicio, fechaFin, null, costoTotal); // Aca cambie costoTotal por IReservaState a ver que pasaba
   }
 }

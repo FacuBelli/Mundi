@@ -14,13 +14,18 @@ public class Reserva {
   private IReservaState estado;
   private GestorFacturacion gestorFacturacion;
 
-  public Reserva(Huesped huesped, Habitacion habitacion, Date fechaInicio, Date fechaFin, IReservaState estado) {
+  public Reserva(Huesped huesped, Habitacion habitacion, Date fechaInicio, Date fechaFin, IReservaState estado, double costoTotal) {
     this.huesped = huesped;
     this.habitacion = habitacion;
     this.fechaInicio = fechaInicio;
     this.fechaFin = fechaFin;
     this.estado = estado;
   }
+
+
+
+
+
 
   public Huesped getHuesped() {
     return huesped;

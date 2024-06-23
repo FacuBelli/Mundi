@@ -74,5 +74,5 @@ public class FacadeHoteleria {
     return reserva;
   }
 
-  // Otros métodos según el diagrama
+  
 }
