@@ -12,12 +12,17 @@ public class GestorFacturacion {
     this.reserva = reserva;
   }
 
-  public void actualizarSubtotal() {
+  public double calcularSubtotal() {
     subtotal = reserva.getHabitacion().getTarifa();
+    return subtotal;
   }
 
   public double getSubtotal() {
     return subtotal;
+  }
+
+  public void setSubtotal(double subtotal) {
+    this.subtotal = subtotal;
   }
 
   public List<Pago> getPagos() {

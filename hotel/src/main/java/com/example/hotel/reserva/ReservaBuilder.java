@@ -6,54 +6,38 @@ import com.example.hotel.habitacion.Habitacion;
 import com.example.hotel.usuario.Huesped;
 
 public class ReservaBuilder {
-  private int id;
-  private Huesped huesped;
-  private Habitacion habitacion;
-  private Date fechaInicio;
-  private Date fechaFin;
-  private double costoTotal;
+  Reserva reserva;
 
   public ReservaBuilder clear() {
-    this.id = 0;
-    this.huesped = null;
-    this.habitacion = null;
-    this.fechaInicio = null;
-    this.fechaFin = null;
-    this.costoTotal = 0.0;
-    return this;
-  }
-
-  public ReservaBuilder id(int id) {
-    this.id = id;
+    this.reserva = new Reserva();
     return this;
   }
 
   public ReservaBuilder huesped(Huesped huesped) {
-    this.huesped = huesped;
+    reserva.setHuesped(huesped);
     return this;
   }
 
   public ReservaBuilder habitacion(Habitacion habitacion) {
-    this.habitacion = habitacion;
+    reserva.setHabitacion(habitacion);
     return this;
   }
 
   public ReservaBuilder fechaInicio(Date fechaInicio) {
-    this.fechaInicio = fechaInicio;
+    reserva.setFechaInicio(fechaInicio);
     return this;
   }
 
   public ReservaBuilder fechaFin(Date fechaFin) {
-    this.fechaFin = fechaFin;
-    return this;
-  }
-
-  public ReservaBuilder costoTotal(double costoTotal) {
-    this.costoTotal = costoTotal;
+    reserva.setFechaFin(fechaFin);
     return this;
   }
 
   public Reserva build() {
+<<<<<<< HEAD
     return new Reserva(huesped, habitacion, fechaInicio, fechaFin, null, costoTotal); // Aca cambie costoTotal por IReservaState a ver que pasaba
+=======
+    return reserva;
+>>>>>>> 7131b73ef82cd144e47d50bbd3aa20f1e235621a
   }
 }
